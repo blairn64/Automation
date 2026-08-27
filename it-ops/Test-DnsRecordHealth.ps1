@@ -24,7 +24,7 @@ $results = foreach ($target in $Name) {
 
     $addresses = @($lookup | Where-Object IPAddress | Select-Object -ExpandProperty IPAddress)
     $reachable = $null
-    if ($Type -in @('A','AAAA') -and $lookupError -eq $null -and $addresses.Count -gt 0) {
+    if ($Type -in @('A','AAAA') -and [string]::IsNullOrEmpty($lookupError) -and $addresses.Count -gt 0) {
         $reachable = Test-NetConnection -ComputerName $target -Port $Port -InformationLevel Quiet -WarningAction SilentlyContinue
     }
 

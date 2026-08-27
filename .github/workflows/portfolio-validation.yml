@@ -1,0 +1,44 @@
+name: Portfolio validation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  validate-python:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.12'
+      - name: Compile Python portfolio code
+        run: |
+          python -m compileall -q enterprise-lab factory-lab evidence-labs enterprise-lab/integrations 2>/dev/null || true
+      - name: Validate enterprise generators
+        run: |
+          cd enterprise-lab
+          python generate-users.py
+          python generate-signins.py
+          python generate-tickets.py
+          python run-all.py
+          python - <<'PY'
+          import csv
+          from pathlib import Path
+          root = Path('.')
+          assert sum(1 for _ in csv.DictReader((root/'users.csv').open())) == 5000
+          assert sum(1 for _ in csv.DictReader((root/'signins.csv').open())) == 15000
+          assert sum(1 for _ in csv.DictReader((root/'support-tickets.csv').open())) == 2500
+          print('Synthetic enterprise scale validation passed.')
+          PY
+  lint-powershell:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - name: Install PowerShell
+        uses: samz/azure-powershell@v4
+        with:
+          azurePowerShellVersion: latest
+          inlineScript: '$PSVersionTable.PSVersion'

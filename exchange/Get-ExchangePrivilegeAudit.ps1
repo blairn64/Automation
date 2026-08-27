@@ -7,19 +7,22 @@ param(
 Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
-# Run this only against an Exchange environment you are authorised to administer.
-# The script intentionally does not contain connection credentials or tenant data.
-
 if (-not (Get-Command Get-RoleGroupMember -ErrorAction SilentlyContinue)) {
-    throw 'ExchangeOnlineManagement cmdlets are not available. Install/import the module in your authorised lab.'
+    throw 'Exchange Online Management cmdlets are not available. Install/import the module in an authorised lab.'
 }
 
-$members = Get-RoleGroupMember -Identity $RoleGroup -Recursive |
-    Select-Object Name, RecipientType, PrimarySmtpAddress
+$members = @(Get-RoleGroupMember -Identity $RoleGroup -Recursive |
+    Select-Object Name, RecipientType, PrimarySmtpAddress)
 
 $outDir = Split-Path -Parent $OutputPath
-if ($outDir -and -not (Test-Path $outDir)) { New-Item -ItemType Directory -Path $outDir -Force | Out-Null }
+if ($outDir -and -not (Test-Path -LiteralPath $outDir)) {
+    New-Item -ItemType Directory -Path $outDir -Force | Out-Null
+}
 
-$members | Export-Csv -Path $OutputPath -NoTypeInformation -Encoding UTF8
+$members | Export-Csv -LiteralPath $OutputPath -NoTypeInformation -Encoding UTF8
 
-Write-Output "Exported $(@($members).Count) members from '$RoleGroup' to $OutputPath"
+[pscustomobject]@{
+    RoleGroup = $RoleGroup
+    MemberCount = $members.Count
+    OutputPath = (Resolve-Path -LiteralPath $OutputPath).Path
+}

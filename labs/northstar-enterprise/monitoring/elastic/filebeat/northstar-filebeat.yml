@@ -1,0 +1,17 @@
+filebeat.inputs:
+  - type: filestream
+    id: northstar-telemetry
+    enabled: true
+    paths:
+      - ${NORTHSTAR_TELEMETRY_PATH:./telemetry-events.ndjson}
+    parsers:
+      - ndjson:
+          target: ''
+          add_error_key: true
+
+output.elasticsearch:
+  hosts: ${ELASTICSEARCH_HOSTS:["http://elasticsearch:9200"]}
+  index: northstar-telemetry-%{+yyyy.MM.dd}
+
+setup.template.enabled: false
+logging.level: info

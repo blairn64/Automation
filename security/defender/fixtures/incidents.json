@@ -1,0 +1,5 @@
+[
+  {"Id":"INC-SYN-001","DisplayName":"Suspicious PowerShell","Severity":"high","Status":"new","CreatedDateTime":"2026-08-27T10:20:00Z","LastUpdateDateTime":"2026-08-27T10:35:00Z"},
+  {"Id":"INC-SYN-002","DisplayName":"Multiple failed sign-ins","Severity":"medium","Status":"inProgress","CreatedDateTime":"2026-08-27T09:10:00Z","LastUpdateDateTime":"2026-08-27T09:55:00Z"},
+  {"Id":"INC-SYN-003","DisplayName":"Malware detected","Severity":"high","Status":"resolved","CreatedDateTime":"2026-08-26T15:00:00Z","LastUpdateDateTime":"2026-08-26T17:10:00Z"}
+]

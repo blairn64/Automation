@@ -4,12 +4,22 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 
 > **Portfolio rule:** examples are either personal lab work or clean-room demonstrations. No employer/client/tenant data, credentials, private hostnames or proprietary configuration is included.
 
-## Flagship lab
+## Flagship: Northstar Enterprise Lab
 
-- [`labs/northstar-enterprise/`](labs/northstar-enterprise/) — fictional multi-site enterprise built around Hyper-V, Active Directory, segmented networks, OPNsense, Elastic, ElastAlert 2, monitoring, OT telemetry and reproducible incident scenarios
+**Start here:** [`labs/northstar-enterprise/README-PORTFOLIO.md`](labs/northstar-enterprise/README-PORTFOLIO.md)
+
+Northstar is the portfolio's integrated enterprise lab: a fictional multi-site organisation with Hyper-V infrastructure, Active Directory/DNS, segmented networks, OPNsense policy concepts, business services, RabbitMQ telemetry, Elastic/Kibana observability, ElastAlert 2 detection, operational automation and five controlled incident scenarios.
+
+**Quick path:**
+1. [`Northstar architecture`](labs/northstar-enterprise/architecture/ENTERPRISE-ARCHITECTURE.md)
+2. [`Scenario runbook`](labs/northstar-enterprise/SCENARIO-RUNBOOK.md)
+3. [`Operational tooling`](labs/northstar-enterprise/scripts/)
+4. [`Monitoring specifications`](labs/northstar-enterprise/monitoring/DASHBOARD-SPECIFICATIONS.md)
+5. [`CV → GitHub evidence map`](CV-GITHUB-EVIDENCE-MAP.md)
 
 ## Start here
 
+- [`CV-GITHUB-EVIDENCE-MAP.md`](CV-GITHUB-EVIDENCE-MAP.md) — direct technical claim → public artefact mapping
 - [`docs/PROJECT-STATUS.md`](docs/PROJECT-STATUS.md) — what is runnable, simulated, fixture-driven or environment-specific
 - [`docs/CASE-STUDIES.md`](docs/CASE-STUDIES.md) — engineering stories and troubleshooting paths
 - [`docs/QUALITY.md`](docs/QUALITY.md) — quality expectations
@@ -37,7 +47,6 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 - [`factory-lab/`](factory-lab/) — synthetic IT/OT-style telemetry pipeline
 
 ### Monitoring, security & infrastructure
-- [`labs/northstar-enterprise/`](labs/northstar-enterprise/) — flagship virtual enterprise and incident lab
 - [`evidence-labs/networking/`](evidence-labs/networking/) — firewall, VPN, DNS/DHCP and segmentation lab patterns
 - [`security/vulnerability-management/`](security/vulnerability-management/) — scanner-style findings and remediation pipeline
 - [`security/defender/`](security/defender/) — Defender incident triage
@@ -56,6 +65,7 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 
 ## Evidence and documentation
 
+- [`CV-GITHUB-EVIDENCE-MAP.md`](CV-GITHUB-EVIDENCE-MAP.md) — quick technical evidence map
 - [`docs/CV-EVIDENCE.md`](docs/CV-EVIDENCE.md) — CV-to-exact-artifact mapping
 - [`docs/VENDOR-EVIDENCE.md`](docs/VENDOR-EVIDENCE.md) — vendor technology evidence index
 - [`docs/CASE-STUDIES.md`](docs/CASE-STUDIES.md) — engineering case studies

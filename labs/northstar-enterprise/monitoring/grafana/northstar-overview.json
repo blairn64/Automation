@@ -1,0 +1,12 @@
+{
+  "title": "Northstar Enterprise Operations Overview",
+  "description": "Portable dashboard specification for synthetic Northstar signals.",
+  "templating": {"list": [{"name":"site","type":"custom","query":"HQ,Plant-01,Plant-02"}]},
+  "panels": [
+    {"title":"Service Availability","type":"stat","query":"northstar_service_up"},
+    {"title":"Telemetry Queue Depth","type":"timeseries","query":"northstar_queue_depth"},
+    {"title":"Ingestion Freshness","type":"stat","query":"northstar_ingestion_age_seconds"},
+    {"title":"Capacity Pressure","type":"timeseries","query":"northstar_capacity_percent"},
+    {"title":"Authentication Failures","type":"timeseries","query":"northstar_auth_failures_total"}
+  ]
+}

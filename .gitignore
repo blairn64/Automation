@@ -1,0 +1,19 @@
+# Runtime output
+output/
+*.log
+
+# Local configuration / secrets
+.env
+*.env
+*.pfx
+*.p12
+*.pem
+*.key
+vault.yml
+vault.yaml
+secrets.yml
+secrets.yaml
+
+# PowerShell editor / local state
+.vscode/
+.DS_Store

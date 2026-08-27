@@ -14,8 +14,20 @@ These scripts are written for this portfolio and are not copied from third-party
 - `Get-ADPasswordAgeReport.ps1` — report password age and expiry status.
 - `Get-InstalledSoftwareInventory.ps1` — inventory Windows software from uninstall registry keys.
 - `Get-LocalAdministrator.ps1` — inspect local Administrators group membership.
-- `Get-WindowsServiceHealth.ps1` — identify stopped services matching a requested set.
+- `Get-WindowsServiceHealth.ps1` — inspect selected Windows services locally or remotely.
 - `Test-DnsRecord.ps1` — test DNS resolution and report timing.
+
+## Example usage
+
+```powershell
+.\Get-InactiveADUser.ps1 -InactiveDays 90 -OutputPath .\inactive-users.csv
+.\Get-InactiveADComputer.ps1 -InactiveDays 120
+.\Get-ADPasswordAgeReport.ps1 -WarningDays 30 -OutputPath .\password-age.csv
+.\Get-InstalledSoftwareInventory.ps1 -ComputerName PC01 -Name 'Visual C++'
+.\Get-LocalAdministrator.ps1 -ComputerName PC01
+.\Get-WindowsServiceHealth.ps1 -ComputerName PC01 -ServiceName WinRM,EventLog
+.\Test-DnsRecord.ps1 -Name app.example.test -Type A
+```
 
 ## Design principles
 
@@ -25,4 +37,10 @@ Environment-specific names, credentials, IP addresses and tenant identifiers mus
 
 ## Source inspiration
 
-The collection follows the practical IT-operations themes covered by Adam the Automator, particularly Active Directory user/account reporting, groups, GPOs, DNS, troubleshooting, software inventory and reusable PowerShell functions. The implementations here are original portfolio code. citeturn362987view0turn482696search0turn269655search0
+The collection is informed by the practical IT-operations themes covered by Adam the Automator, including Active Directory account reporting, groups, GPOs, DNS, troubleshooting, software inventory, onboarding and reusable PowerShell functions. The implementations here are independently written for this portfolio.
+
+Reference material:
+- https://adamtheautomator.com/active-directory-scripts/
+- https://adamtheautomator.com/powershell-list-installed-software/
+- https://adamtheautomator.com/powershell-onboarding-script/
+- https://adamtheautomator.com/powershell-modules/

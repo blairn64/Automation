@@ -8,16 +8,17 @@ jobs:
   analyze:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
 
-      - name: Install PowerShell
+      - name: Verify PowerShell
         shell: bash
-        run: |
-          pwsh -NoLogo -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
+        run: pwsh -NoLogo -NoProfile -Command '$PSVersionTable.PSVersion.ToString()'
 
       - name: Install PSScriptAnalyzer
         shell: pwsh
-        run: Install-Module PSScriptAnalyzer -Scope CurrentUser -Force -ErrorAction Stop
+        run: |
+          Set-PSRepository -Name PSGallery -InstallationPolicy Trusted
+          Install-Module PSScriptAnalyzer -Scope CurrentUser -Force -ErrorAction Stop
 
       - name: Analyze PowerShell
         shell: pwsh
@@ -26,4 +27,4 @@ jobs:
           if (-not $files) { throw 'No PowerShell scripts found.' }
           $results = $files | Invoke-ScriptAnalyzer -Settings ./PSScriptAnalyzerSettings.psd1
           $results | Format-Table -AutoSize
-          if ($results | Where-Object Severity -eq 'Error') { exit 1 }
+          if ($results | Where-Object Severity -in @('Error', 'Warning')) { exit 1 }

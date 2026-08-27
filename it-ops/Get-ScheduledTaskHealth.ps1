@@ -8,9 +8,8 @@ param(
 $results = foreach ($computer in $ComputerName) {
     try {
         $tasks = Invoke-Command -ComputerName $computer -ScriptBlock {
-            param($IncludeDisabled)
             Get-ScheduledTask -ErrorAction Stop | ForEach-Object {
-                if ($IncludeDisabled -or $_.State -ne 'Disabled') {
+                if ($using:IncludeDisabled -or $_.State -ne 'Disabled') {
                     $info = $_ | Get-ScheduledTaskInfo -ErrorAction SilentlyContinue
                     [pscustomobject]@{
                         TaskName       = $_.TaskName
@@ -22,7 +21,7 @@ $results = foreach ($computer in $ComputerName) {
                     }
                 }
             }
-        } -ArgumentList $IncludeDisabled
+        }
 
         foreach ($task in $tasks) {
             [pscustomobject]@{

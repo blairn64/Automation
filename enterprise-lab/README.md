@@ -1,8 +1,21 @@
-# Enterprise Operations Lab — 5,000 Users / Multi-Site Manufacturing
+# Enterprise IT/OT Operations Lab
 
-A synthetic end-to-end environment that reproduces the *operating model* of a large manufacturing estate: thousands of users, multiple sites, Microsoft-style identity, factory IT/OT networks, production application services, SQL data, messaging, monitoring and support workflows.
+A synthetic, reproducible enterprise environment designed to demonstrate the scale and breadth of infrastructure support described in my professional experience.
 
-This is a clean-room portfolio lab. It contains no employer/client data, credentials, tenant identifiers or proprietary configuration.
+## Scope
+
+The lab models:
+
+- 5,000 synthetic users across multiple sites
+- Microsoft 365 / Entra-style identity activity
+- service-desk tickets and escalation paths
+- corporate, DMZ, application, production and OT network zones
+- IIS-style application hosting
+- SQL-backed production data
+- an SAP-style integration boundary
+- PLC/machine and sensor telemetry
+- RabbitMQ/AMQP messaging
+- Elastic-style logging and operational dashboards
 
 ## Architecture
 
@@ -41,56 +54,50 @@ This is a clean-room portfolio lab. It contains no employer/client data, credent
                                Monitoring / reports
 ```
 
-## Scale model
+## Scale
 
-The lab includes synthetic data generation for **5,000 users**, multiple manufacturing sites, assets, support events and telemetry streams. The number is intentionally large enough to exercise filtering, batching, reporting and operational triage patterns without using real records.
+The environment is deliberately sized at **5,000 synthetic users** to demonstrate batching, reporting, triage and administration at realistic enterprise scale. Generated records are fictional and contain no employer/client information.
 
-## What an engineer can demonstrate
+## Operating model
 
-### Identity and user operations
+### Identity and M365
 
-- Provision/report users at thousands-of-user scale.
-- Generate synthetic sign-in and authentication events.
-- Analyse access activity by site and user population.
-- Separate identity telemetry from remediation actions.
+Synthetic identities generate sign-in activity, device associations and support events. The lab demonstrates reporting, filtering, access review and incident triage rather than connecting to a real tenant.
 
-### Manufacturing IT/OT
+### Factory IT/OT
 
-- Treat factory networks as segmented zones.
-- Represent PLC-connected machines and sensors with simulators.
-- Move telemetry through an explicit ingestion boundary.
-- Trace an operational value from source device through queue, processing and reporting.
+Each site contains separated corporate, application, production and OT zones. PLCs, machines, scales and sensors are represented by simulators. Telemetry crosses a controlled ingestion boundary before being processed and reported.
 
-### Application and data support
+### Application and SQL support
 
-- Represent an IIS-style application tier.
-- Store production-style records in SQL.
-- Model an external SAP-style integration boundary without reproducing vendor-specific proprietary interfaces.
-- Diagnose failures across application, database, network and messaging layers.
+An IIS-style application tier represents production web services. SQL stores operational records. An SAP-style boundary represents business-system integration without reproducing proprietary vendor interfaces.
 
-### Monitoring and incident response
+### Monitoring and service desk
 
-- Produce health signals from application, host, queue and telemetry layers.
-- Generate synthetic alerts and classify severity.
-- Investigate queue backlog, unavailable services, stale data and threshold breaches.
-- Keep detection separate from remediation.
+Synthetic telemetry produces alerts and service-desk events. Incidents can be followed from initial user report through identity, network, application, database or queue troubleshooting to resolution and root-cause notes.
 
-## Interview scenarios
+## Failure scenarios
 
-1. A single factory line stops reporting telemetry while the rest of the site remains healthy.
-2. The application is reachable but SQL data is stale.
-3. RabbitMQ backlog grows because a consumer is unavailable.
-4. A user population reports authentication failures after an identity-policy change.
-5. A network segment blocks a required application-to-database path.
-6. Production KPI data differs from source sensor values and needs end-to-end tracing.
-7. Monitoring generates too many alerts and thresholds require tuning.
-8. A site loses connectivity while local production services continue operating.
+1. Authentication failures for a subset of users.
+2. IIS application pool or endpoint failure.
+3. SQL connectivity or stale-data condition.
+4. RabbitMQ queue backlog or unavailable consumer.
+5. Factory VLAN segmentation blocking a dependency.
+6. Sensor/scale data outside an expected range.
+7. Elastic ingestion delay or missing telemetry.
+8. Monitoring threshold causing alert noise.
+9. Site-to-core connectivity loss with local factory services remaining available.
+10. Data mismatch between source telemetry and KPI reporting.
 
-## Design goals
+## Run
 
-- Synthetic data only.
-- No destructive automation by default.
-- Runtime configuration rather than embedded secrets.
-- Reproducible local execution.
-- Explicit separation between IT and OT responsibilities.
-- Clear evidence of troubleshooting, automation and operational reasoning.
+```bash
+python enterprise-lab/generate-users.py
+python enterprise-lab/generate-signins.py
+python enterprise-lab/generate-tickets.py
+python enterprise-lab/run-all.py
+```
+
+## Portfolio boundary
+
+This is a **clean-room demonstration of the engineering model**, not a copy of a former employer's environment. No production credentials, client records, private hostnames, tenant identifiers or proprietary configuration are included.

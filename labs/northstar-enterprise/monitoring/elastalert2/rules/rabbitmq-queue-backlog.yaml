@@ -1,0 +1,17 @@
+name: Northstar RabbitMQ queue backlog
+index: northstar-telemetry-*
+type: frequency
+num_events: 3
+timeframe:
+  minutes: 5
+filter:
+  - query:
+      query_string:
+        query: 'event.category: "queue" AND northstar.queue_depth:>=1000'
+alert:
+  - "debug"
+realert:
+  minutes: 30
+
+# Demo rule: replace debug with an approved alert target in local configuration.
+# Test with elastalert-test-rule before enabling in a live lab scenario.

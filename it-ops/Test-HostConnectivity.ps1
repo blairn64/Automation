@@ -3,7 +3,6 @@ param(
     [Parameter(Mandatory)]
     [string[]]$ComputerName,
     [int]$Port = 443,
-    [int]$TimeoutMilliseconds = 1500,
     [string]$OutputPath
 )
 

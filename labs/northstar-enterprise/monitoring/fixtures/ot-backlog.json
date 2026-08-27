@@ -1,0 +1,6 @@
+[
+  {"@timestamp":"2026-08-27T12:00:00Z","event":{"dataset":"northstar.ot"},"northstar":{"site":"PLANT-EAST","scenario":"normal","queue_depth":12,"asset":"MIX-01"}},
+  {"@timestamp":"2026-08-27T12:01:00Z","event":{"dataset":"northstar.ot"},"northstar":{"site":"PLANT-EAST","scenario":"normal","queue_depth":18,"asset":"MIX-01"}},
+  {"@timestamp":"2026-08-27T12:02:00Z","event":{"dataset":"northstar.ot"},"northstar":{"site":"PLANT-EAST","scenario":"telemetry-backlog","queue_depth":1450,"asset":"MIX-01"}},
+  {"@timestamp":"2026-08-27T12:03:00Z","event":{"dataset":"northstar.ot"},"northstar":{"site":"PLANT-EAST","scenario":"telemetry-backlog","queue_depth":1980,"asset":"MIX-01"}}
+]

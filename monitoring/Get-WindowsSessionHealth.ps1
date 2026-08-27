@@ -29,15 +29,18 @@ function Get-SessionHealth {
         }
     }
 
-    if (-not $IncludeDisconnected) {
-        $sessions = $sessions | Where-Object State -ne 'Disc'
+    if ($IncludeDisconnected) {
+        $selectedSessions = @($sessions)
+    }
+    else {
+        $selectedSessions = @($sessions | Where-Object State -ne 'Disc')
     }
 
     [pscustomobject]@{
         Computer = $Computer
         Checked  = (Get-Date).ToUniversalTime()
-        Sessions = @($sessions)
-        Count    = @($sessions).Count
+        Sessions = $selectedSessions
+        Count    = $selectedSessions.Count
     }
 }
 

@@ -1,0 +1,18 @@
+winlogbeat.event_logs:
+  - name: Security
+    ignore_older: 72h
+  - name: System
+  - name: Application
+
+processors:
+  - add_fields:
+      target: northstar
+      fields:
+        environment: lab
+        organization: Northstar Manufacturing Group
+
+output.elasticsearch:
+  hosts: ${ELASTICSEARCH_HOSTS:["http://elastic.internal:9200"]}
+  index: northstar-windows-%{+yyyy.MM.dd}
+
+logging.level: info

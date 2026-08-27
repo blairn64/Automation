@@ -4,7 +4,7 @@
 [![Microsoft Graph](https://img.shields.io/badge/Microsoft%20Graph-API-5E5CE6)](https://learn.microsoft.com/graph/)
 [![CI](https://img.shields.io/badge/CI-PSScriptAnalyzer-2ea44f)](.github/workflows/powershell.yml)
 
-Practical automation across identity, Microsoft 365, directory services, Windows monitoring, Linux administration, Azure, REST APIs, message queues and synthetic manufacturing telemetry.
+Practical automation across identity, Microsoft 365, directory services, Windows and Linux administration, Azure, REST APIs, message queues and synthetic manufacturing telemetry.
 
 This repository turns infrastructure problem-solving patterns into **sanitized, reproducible portfolio examples**. It contains no customer or production configuration.
 
@@ -21,6 +21,20 @@ This repository turns infrastructure problem-solving patterns into **sanitized, 
 - Synthetic factory telemetry and IT/OT-style data flow
 - Configuration and secret separation
 - CI/static analysis with PSScriptAnalyzer
+
+## Portfolio projects
+
+### Factory Telemetry Lab
+`factory-lab/` models a production-style telemetry path using synthetic sensor events, an AMQP queue, a processing worker, validation and anomaly checks. It deliberately does not connect to real PLCs or plant networks.
+
+### Azure Administration Labs
+`azure-labs/` contains administrator-focused scenarios around resource inventory, networking, VM operations, storage and monitoring. The material is generic and uses placeholders rather than real subscription configuration.
+
+### Identity and Microsoft 365 Automation
+`entra/`, `exchange/` and `active-directory/` contain reporting, audit and lab administration examples. Credentials and tenant-specific values are supplied at runtime.
+
+### Operations and Integration
+`monitoring/`, `linux/`, `api-auth/` and `message-queue/` cover Windows/Linux health checks, REST authentication and asynchronous processing.
 
 ## Repository layout
 
@@ -39,36 +53,13 @@ shared/              Example configuration
 docs/                Technical notes and portfolio guidance
 ```
 
-## Highlighted projects
-
-### Infrastructure automation
-Small PowerShell tools turn repeatable identity, directory and monitoring tasks into parameterized commands with structured output and safe defaults.
-
-### Factory Telemetry Lab
-`factory-lab/` models a production-style telemetry path without touching industrial equipment: synthetic sensor events → AMQP queue → processing/validation → operational output.
-
-### Azure Administration Labs
-`azure-labs/` contains administrator-focused exercises around resource inventory, networking, VM operations, storage and monitoring. They are intentionally generic and use placeholders rather than real subscription configuration.
-
-### APIs and queues
-`api-auth/` demonstrates authenticated REST calls without storing tokens. `message-queue/` demonstrates producer/consumer separation, durable queues and acknowledgement behaviour.
-
 ## Engineering approach
 
 The examples favour explicit parameters, predictable output, useful errors and safe defaults. Audit tooling is read-only where practical. Administrative changes use explicit parameters and `ShouldProcess` where appropriate.
 
 ## Safety
 
-Do not add:
-
-- employer or client names
-- real usernames or email addresses
-- tenant, subscription or resource IDs
-- internal domains, URLs, hostnames or IP addresses
-- passwords, API keys, access tokens, private keys or certificates
-- copied ticket content or customer data
-- proprietary DLLs, binaries or vendor material
-- real industrial control addresses, PLC credentials or production telemetry
+Do not add employer or client names, real usernames or email addresses, tenant/subscription/resource IDs, internal domains or URLs, hostnames or IP addresses, credentials, private keys, copied ticket content, customer data, proprietary binaries, real industrial-control addresses or production telemetry.
 
 See [`docs/SECURITY.md`](docs/SECURITY.md) before publishing changes.
 

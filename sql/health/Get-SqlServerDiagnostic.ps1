@@ -14,6 +14,8 @@ catch {
     exit 1
 }
 
+$minimumElapsedMilliseconds = [math]::Max(0, $SlowQuerySeconds * 1000)
+
 $query = @"
 SELECT
     @@SERVERNAME AS ServerName,
@@ -30,6 +32,7 @@ SELECT TOP (20)
     DB_NAME(r.database_id) AS database_name
 FROM sys.dm_exec_requests AS r
 WHERE r.session_id <> @@SPID
+  AND r.total_elapsed_time >= $minimumElapsedMilliseconds
 ORDER BY r.total_elapsed_time DESC;
 "@
 

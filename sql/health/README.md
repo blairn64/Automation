@@ -1,15 +1,20 @@
-# SQL Server diagnostics
+# SQL Server Health Diagnostics
 
-`Get-SqlServerDiagnostic.ps1` collects basic SQL Server instance information and a read-only snapshot of active requests ordered by elapsed time.
+Read-only examples for investigating application-facing SQL Server issues.
 
-Example:
+## Focus
 
-```powershell
-.\Get-SqlServerDiagnostic.ps1 -Instance 'localhost'
-```
+- Database inventory
+- Session/blocking review
+- Failed SQL Agent jobs
+- Backup freshness
+- Capacity and file growth
+- Basic server health
 
-This is intended for authorised troubleshooting and does not change databases, kill sessions, or modify configuration.
+Existing tooling includes `Get-SqlServerDiagnostic.ps1` for an authorised, read-only diagnostic snapshot.
 
 ## Troubleshooting path
 
-Application slow -> confirm endpoint health -> inspect SQL connectivity -> review active requests -> identify blocking/long-running work -> correlate with application and monitoring timestamps.
+Application slow -> endpoint health -> SQL connectivity -> active requests -> blocking/long-running work -> application/monitoring timestamps.
+
+Runtime connection details only; no embedded credentials.

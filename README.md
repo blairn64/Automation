@@ -4,9 +4,9 @@
 [![Microsoft Graph](https://img.shields.io/badge/Microsoft%20Graph-API-5E5CE6)](https://learn.microsoft.com/graph/)
 [![CI](https://img.shields.io/badge/CI-PSScriptAnalyzer-2ea44f)](.github/workflows/powershell.yml)
 
-Practical automation across identity, Microsoft 365, directory services, Windows monitoring, Linux administration, REST APIs and message queues.
+Practical automation across identity, Microsoft 365, directory services, Windows monitoring, Linux administration, Azure, REST APIs, message queues and synthetic manufacturing telemetry.
 
-This repository turns real-world infrastructure problem-solving patterns into **sanitized, reproducible portfolio examples**. It contains no customer or production configuration.
+This repository turns infrastructure problem-solving patterns into **sanitized, reproducible portfolio examples**. It contains no customer or production configuration.
 
 ## What this demonstrates
 
@@ -15,49 +15,47 @@ This repository turns real-world infrastructure problem-solving patterns into **
 - Exchange Online auditing
 - Active Directory administration
 - Windows and Linux operational checks
-- REST API authentication patterns
+- Azure administration and resource reporting
+- REST API authentication boundaries
 - RabbitMQ-compatible asynchronous processing
+- Synthetic factory telemetry and IT/OT-style data flow
 - Configuration and secret separation
 - CI/static analysis with PSScriptAnalyzer
 
 ## Repository layout
 
 ```text
-entra/          Microsoft Graph / Entra reporting
-exchange/       Exchange Online audit tooling
-active-directory/  Directory administration examples
-monitoring/     Windows session and health checks
-linux/          Bash administration utilities
-api-auth/       REST authentication patterns
-message-queue/  RabbitMQ-compatible producer/consumer lab
-shared/         Example configuration
-.github/        CI quality checks
-docs/           Technical notes and roadmap
+entra/              Microsoft Graph / Entra reporting
+exchange/            Exchange Online audit tooling
+active-directory/    Directory administration examples
+monitoring/          Windows session and health checks
+linux/               Bash administration utilities
+api-auth/            REST authentication patterns
+message-queue/       RabbitMQ-compatible producer/consumer lab
+factory-lab/         Synthetic manufacturing telemetry lab
+azure-labs/          AZ-104-aligned administration exercises
+shared/              Example configuration
+.github/             CI quality checks
+docs/                Technical notes and portfolio guidance
 ```
 
-## Tooling highlights
+## Highlighted projects
 
-### Identity
-`entra/Invoke-TenantSignInMonitor.ps1` produces a sanitized HTML report for successful sign-ins outside a configured country allowlist. Authentication is intentionally supplied at runtime rather than stored in the repository.
+### Infrastructure automation
+Small PowerShell tools turn repeatable identity, directory and monitoring tasks into parameterized commands with structured output and safe defaults.
 
-### Microsoft 365 / Exchange
-`exchange/Get-ExchangePrivilegeAudit.ps1` recursively audits an Exchange role group and exports a reviewable CSV. It is deliberately read-only.
+### Factory Telemetry Lab
+`factory-lab/` models a production-style telemetry path without touching industrial equipment: synthetic sensor events → AMQP queue → processing/validation → operational output.
 
-### Active Directory
-`active-directory/New-LabUser.ps1` demonstrates parameterized user preparation with `ShouldProcess` support and optional group assignment.
-
-### Monitoring
-`monitoring/Get-WindowsSessionHealth.ps1` turns Windows Terminal Services session information into structured JSON suitable for automation or a monitoring pipeline.
-
-### Linux
-`linux/health-check.sh` provides a lightweight SSH/cron-friendly host health report covering uptime, load, memory, storage and failed systemd units.
+### Azure Administration Labs
+`azure-labs/` contains administrator-focused exercises around resource inventory, networking, VM operations, storage and monitoring. They are intentionally generic and use placeholders rather than real subscription configuration.
 
 ### APIs and queues
-`api-auth/` demonstrates bearer-token API calls without embedding credentials. `message-queue/` contains a small publisher/consumer pair and a local RabbitMQ lab definition.
+`api-auth/` demonstrates authenticated REST calls without storing tokens. `message-queue/` demonstrates producer/consumer separation, durable queues and acknowledgement behaviour.
 
 ## Engineering approach
 
-The examples favour explicit parameters, predictable output, useful errors and safe defaults. The intent is to show how repetitive infrastructure work can be converted into small, maintainable tools.
+The examples favour explicit parameters, predictable output, useful errors and safe defaults. Audit tooling is read-only where practical. Administrative changes use explicit parameters and `ShouldProcess` where appropriate.
 
 ## Safety
 
@@ -70,6 +68,7 @@ Do not add:
 - passwords, API keys, access tokens, private keys or certificates
 - copied ticket content or customer data
 - proprietary DLLs, binaries or vendor material
+- real industrial control addresses, PLC credentials or production telemetry
 
 See [`docs/SECURITY.md`](docs/SECURITY.md) before publishing changes.
 

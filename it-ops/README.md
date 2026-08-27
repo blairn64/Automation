@@ -6,13 +6,19 @@ These scripts are written for this portfolio and are not copied from third-party
 
 ## Included
 
+### Active Directory / identity
 - `Get-InactiveADUser.ps1` — report stale AD user accounts.
 - `Get-InactiveADComputer.ps1` — report stale AD computer accounts.
 - `Get-ADEmptyGroup.ps1` — find non-default empty groups.
 - `Get-ADUnlinkedGPO.ps1` — report GPOs without links.
 - `Test-ADDomainHealth.ps1` — collect domain-controller health checks.
+- `Get-ADReplicationHealth.ps1` — inspect replication partner state and consecutive failures.
+- `Get-ADSiteTopology.ps1` — report AD sites, site links and associated subnets.
+- `Get-ADDuplicateSPN.ps1` — identify duplicate service principal names.
 - `Get-ADPasswordAgeReport.ps1` — report password age and expiry status.
 - `Get-ADDatabaseSize.ps1` — inventory NTDS database paths and sizes across domain controllers.
+
+### Windows / application operations
 - `Get-InstalledSoftwareInventory.ps1` — inventory Windows software from uninstall registry keys.
 - `Get-LocalAdministrator.ps1` — inspect local Administrators group membership.
 - `Get-WindowsServiceHealth.ps1` — inspect selected Windows services locally or remotely.
@@ -22,18 +28,24 @@ These scripts are written for this portfolio and are not copied from third-party
 - `Get-WindowsUptime.ps1` — report host uptime and long-running systems.
 - `Get-TopProcesses.ps1` — identify processes using the most CPU time in a sample.
 - `Test-RemoteService.ps1` — check named services across remote hosts.
-- `Test-HostConnectivity.ps1` — combine ICMP and TCP reachability checks.
 - `Test-WindowsFirewallProfile.ps1` — inspect Windows Firewall profile state.
 - `Get-CertificateExpiryReport.ps1` — report certificates approaching expiry.
+- `Get-IISBindingAudit.ps1` — inventory IIS bindings and flag HTTPS bindings for certificate review.
+
+### Networking / reporting
+- `Test-HostConnectivity.ps1` — combine ICMP and TCP reachability checks.
 - `Test-DnsRecord.ps1` — test DNS resolution and report timing.
+- `Test-DnsRecordHealth.ps1` — compare DNS resolution with TCP reachability.
 - `New-HtmlInventoryReport.ps1` — turn collected objects into a portable HTML report.
 
 ## Example usage
 
 ```powershell
 .\Get-InactiveADUser.ps1 -InactiveDays 90 -OutputPath .\inactive-users.csv
+.\Get-ADReplicationHealth.ps1 -OutputPath .\replication.csv
+.\Get-ADSiteTopology.ps1 -OutputPath .\site-topology.csv
+.\Get-ADDuplicateSPN.ps1 -OutputPath .\duplicate-spns.csv
 .\Get-ADDatabaseSize.ps1 -OutputPath .\ad-database.csv
-.\Get-ADPasswordAgeReport.ps1 -WarningDays 30 -OutputPath .\password-age.csv
 .\Get-ScheduledTaskHealth.ps1 -ComputerName PC01
 .\Get-RecentSystemEvents.ps1 -Hours 24 -LogName System
 .\Get-WindowsDiskHealth.ps1 -ComputerName PC01 -MinimumFreePercent 15
@@ -43,7 +55,9 @@ These scripts are written for this portfolio and are not copied from third-party
 .\Test-HostConnectivity.ps1 -ComputerName PC01 -Port 443
 .\Test-WindowsFirewallProfile.ps1
 .\Get-CertificateExpiryReport.ps1 -Days 60
+.\Get-IISBindingAudit.ps1 -ComputerName WEB01 -OutputPath .\iis-bindings.csv
 .\Test-DnsRecord.ps1 -Name app.example.test -Type A
+.\Test-DnsRecordHealth.ps1 -Name app.example.test -Type A -Port 443
 ```
 
 ## Design principles
@@ -54,14 +68,6 @@ Environment-specific names, credentials, IP addresses and tenant identifiers mus
 
 ## Source inspiration
 
-The collection is informed by the practical IT-operations themes covered by Adam the Automator, including Active Directory account reporting, groups, GPOs, DNS, troubleshooting, software inventory, onboarding, services, AD health and reusable PowerShell functions. The implementations here are independently written for this portfolio.
+The collection is informed by practical IT-operations themes covered by Adam the Automator, including Active Directory automation, AD sites, DNS troubleshooting, services, software inventory, AD health, certificates and IIS administration. The implementations here are independently written for this portfolio.
 
-Reference material:
-- https://adamtheautomator.com/active-directory-scripts/
-- https://adamtheautomator.com/powershell-list-installed-software/
-- https://adamtheautomator.com/powershell-onboarding-script/
-- https://adamtheautomator.com/powershell-modules/
-- https://adamtheautomator.com/active-directory-health-check-2/
-- https://adamtheautomator.com/active-directory-database/
-- https://adamtheautomator.com/powershell-start-service/
-- https://adamtheautomator.com/windows-certificate-manager/
+See [`../docs/ATA-CROSSWALK.md`](../docs/ATA-CROSSWALK.md) for the topic-to-tool mapping and source references.

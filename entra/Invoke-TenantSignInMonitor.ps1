@@ -17,24 +17,28 @@ function ConvertTo-HtmlSafe {
 }
 
 function Connect-ToGraphTenant {
-    param([Parameter(Mandatory)] [string]$TenantId)
+    param(
+        [Parameter(Mandatory)] [string]$TenantId,
+        [Parameter(Mandatory)] [string]$ClientIdValue,
+        [Parameter(Mandatory)] [string]$CertificateThumbprintValue
+    )
 
-    if (-not $ClientId) {
+    if (-not $ClientIdValue) {
         throw 'GRAPH_CLIENT_ID is required (or pass -ClientId).'
     }
 
-    if (-not $CertificateThumbprint) {
+    if (-not $CertificateThumbprintValue) {
         throw 'GRAPH_CERT_THUMBPRINT is required (or pass -CertificateThumbprint).'
     }
 
     Disconnect-MgGraph -ErrorAction SilentlyContinue | Out-Null
-    Connect-MgGraph -TenantId $TenantId -ClientId $ClientId -CertificateThumbprint $CertificateThumbprint -NoWelcome | Out-Null
+    Connect-MgGraph -TenantId $TenantId -ClientId $ClientIdValue -CertificateThumbprint $CertificateThumbprintValue -NoWelcome | Out-Null
 }
 
 function Get-SignInFinding {
     param([Parameter(Mandatory)] [string]$TenantId)
 
-    Connect-ToGraphTenant -TenantId $TenantId
+    Connect-ToGraphTenant -TenantId $TenantId -ClientIdValue $ClientId -CertificateThumbprintValue $CertificateThumbprint
 
     $start = (Get-Date).ToUniversalTime().AddHours(-$HoursBack).ToString('o')
     $filter = "createdDateTime ge $start and status/errorCode eq 0"

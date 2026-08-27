@@ -1,0 +1,12 @@
+{
+  "title": "Enterprise Operations",
+  "schemaVersion": 39,
+  "version": 1,
+  "panels": [
+    {"type":"stat","title":"Open incidents","targets":[{"expr":"sum(incidents_open)"}]},
+    {"type":"stat","title":"Telemetry events/sec","targets":[{"expr":"sum(telemetry_events_total)"}]},
+    {"type":"timeseries","title":"Queue depth","targets":[{"expr":"rabbitmq_queue_depth"}]},
+    {"type":"timeseries","title":"Application latency","targets":[{"expr":"app_request_latency_ms"}]},
+    {"type":"table","title":"Critical assets","targets":[{"expr":"asset_risk_score"}]}
+  ]
+}

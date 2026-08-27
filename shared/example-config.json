@@ -1,0 +1,6 @@
+{
+  "tenantId": "YOUR-TENANT-ID",
+  "sender": "security@example.com",
+  "allowedCountries": ["GB", "IE"],
+  "hoursBack": 24
+}

@@ -16,7 +16,8 @@ if (-not (Get-Command New-ADUser -ErrorAction SilentlyContinue)) {
 }
 
 $displayName = "$GivenName $Surname"
-$userParams = @{
+
+$userParameters = @{
     SamAccountName    = $SamAccountName
     UserPrincipalName = $UserPrincipalName
     GivenName         = $GivenName
@@ -28,7 +29,7 @@ $userParams = @{
 }
 
 if ($PSCmdlet.ShouldProcess($displayName, 'Create lab Active Directory user')) {
-    New-ADUser @userParams
+    New-ADUser @userParameters
 
     foreach ($group in $Groups) {
         if ($PSCmdlet.ShouldProcess($group, "Add $displayName to group")) {

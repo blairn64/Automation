@@ -1,0 +1,16 @@
+<!-- Synthetic examples only. Deploy only in an isolated test environment. -->
+<group name="portfolio,authentication,">
+  <rule id="100201" level="8">
+    <decoded_as>json</decoded_as>
+    <field name="event_type">authentication</field>
+    <field name="result">failure</field>
+    <description>Portfolio lab authentication failure</description>
+  </rule>
+
+  <rule id="100202" level="10">
+    <decoded_as>json</decoded_as>
+    <field name="event_type">privilege</field>
+    <field name="result">unexpected</field>
+    <description>Portfolio lab unexpected privilege event</description>
+  </rule>
+</group>

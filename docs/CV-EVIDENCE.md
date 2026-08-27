@@ -1,44 +1,44 @@
 # CV Evidence Matrix
 
-This document maps CV claims to a specific public portfolio artifact where one is safe and useful, or to professional experience where the original environment cannot be published.
+This maps CV claims to specific public artifacts. Production claims remain tied to employment; portfolio artifacts demonstrate the same technical practices using clean-room/synthetic systems.
 
 ## Public technical evidence
 
-| CV area | Click-through evidence |
+| CV area | Exact evidence |
 | --- | --- |
-| Entra ID / Microsoft Graph | [`entra/`](../entra/) |
-| Exchange Online auditing | [`exchange/`](../exchange/) |
+| Entra ID / Microsoft Graph | [`entra/`](../entra/) sign-in/reporting scripts |
+| Exchange Online | [`exchange/`](../exchange/) privilege-audit tooling |
 | Active Directory | [`active-directory/`](../active-directory/) + [`it-ops/`](../it-ops/) |
-| PowerShell automation | [`it-ops/`](../it-ops/) + repository PowerShell tooling |
-| Linux | [`linux/`](../linux/) |
-| Azure administration | [`azure-labs/`](../azure-labs/) |
+| PowerShell | [`it-ops/`](../it-ops/) 20-script collection + repo tooling |
+| Linux | [`linux/`](../linux/) operational checks |
+| Azure | [`azure-labs/`](../azure-labs/) administration scenarios |
 | REST / authentication | [`api-auth/`](../api-auth/) |
-| RabbitMQ / AMQP | [`message-queue/`](../message-queue/) |
-| IT/OT-style telemetry | [`factory-lab/`](../factory-lab/) |
-| 5,000-user enterprise operations | [`enterprise-lab/`](../enterprise-lab/) |
-| SQL-backed application work | [`c0miX`](../../c0miX) |
-| Flask / Python | [`c0miX`](../../c0miX) |
-| Docker | [`message-queue/`](../message-queue/) + [`c0miX`](../../c0miX) |
-| Elasticsearch / Elastic Stack | [`elastics-SIEM`](../../elastics-SIEM) |
-| Kibana / Logstash / Filebeat / Winlogbeat | [`elastics-SIEM`](../../elastics-SIEM) |
-| NoSQL | [`evidence-labs/nosql/`](../evidence-labs/nosql/) |
-| Power BI / operational reporting | [`evidence-labs/power-bi/`](../evidence-labs/power-bi/) |
-| Wazuh monitoring concepts | [`evidence-labs/wazuh/`](../evidence-labs/wazuh/) |
-| Grafana monitoring concepts | [`evidence-labs/observability/grafana/`](../evidence-labs/observability/grafana/) |
-| Zabbix monitoring concepts | [`evidence-labs/observability/zabbix/`](../evidence-labs/observability/zabbix/) |
-| ManageEngine operations model | [`evidence-labs/observability/manageengine/`](../evidence-labs/observability/manageengine/) |
-| Firewall / VPN / DNS / DHCP / segmentation | [`evidence-labs/networking/`](../evidence-labs/networking/) |
-| VMware / Hyper-V operations | [`virtualization/`](../virtualization/) |
-| Vulnerability management | [`security/vulnerability-management/`](../security/vulnerability-management/) |
-| Service-desk operations | [`service-desk/`](../service-desk/) |
-| Incident response / root-cause troubleshooting | [`incident-scenarios/`](../incident-scenarios/) |
-| IIS application support | [`windows/iis/`](../windows/iis/) |
+| RabbitMQ / AMQP | [`message-queue/`](../message-queue/) + [`factory-lab/`](../factory-lab/) |
+| IT/OT telemetry | [`factory-lab/`](../factory-lab/) |
+| 5,000-user enterprise operations | [`enterprise-lab/`](../enterprise-lab/) synthetic estate generators |
+| Identity + support correlation | [`enterprise-lab/join-identity-support.py`](../enterprise-lab/join-identity-support.py) |
+| IIS application support | [`windows/iis/Get-IisHealthReport.ps1`](../windows/iis/Get-IisHealthReport.ps1) |
 | SQL Server diagnostics | [`sql/health/`](../sql/health/) |
 | SAP-style integration | [`enterprise-lab/integrations/sap-style/`](../enterprise-lab/integrations/sap-style/) |
+| Siemens/PLC-style OT boundary | [`enterprise-lab/ot/`](../enterprise-lab/ot/) |
+| NoSQL / MongoDB | [`evidence-labs/nosql/mongo-demo.py`](../evidence-labs/nosql/mongo-demo.py) |
+| Power BI / operational reporting | [`evidence-labs/power-bi/`](../evidence-labs/power-bi/) + `OperationalKPIs.dax` |
+| Elastic | [`elastics-SIEM`](../../elastics-SIEM) + [`monitoring/elastic/`](../monitoring/elastic/) |
+| Wazuh | [`evidence-labs/wazuh/`](../evidence-labs/wazuh/) + `rules/local-rules.xml` |
+| Grafana | [`evidence-labs/observability/grafana/`](../evidence-labs/observability/grafana/) + dashboard definition |
+| Zabbix | [`evidence-labs/observability/zabbix/`](../evidence-labs/observability/zabbix/) |
+| ManageEngine | [`evidence-labs/observability/manageengine/`](../evidence-labs/observability/manageengine/) |
+| Networking | [`evidence-labs/networking/`](../evidence-labs/networking/) + `test-network-path.ps1` |
+| VMware / Hyper-V operational work | [`virtualization/`](../virtualization/) |
+| Vulnerability management | [`security/vulnerability-management/`](../security/vulnerability-management/) |
+| Service desk | [`service-desk/`](../service-desk/) |
+| Incident response / RCA | [`incident-scenarios/`](../incident-scenarios/) |
+| Docker | [`message-queue/`](../message-queue/) + [`c0miX`](../../c0miX) |
+| Flask / Python | [`c0miX`](../../c0miX) |
 
 ## Professional-experience evidence
 
-These are genuine employment claims. The public repository demonstrates the relevant operating concepts without exposing the original production environment:
+These are genuine employment claims supported by the CV/work history. The public labs intentionally model the same classes of systems without publishing employer configuration or data:
 
 - Supporting thousands of users
 - Global multi-site manufacturing operations
@@ -53,8 +53,8 @@ These are genuine employment claims. The public repository demonstrates the rele
 - VMware and Hyper-V in production
 - Enterprise firewall/VPN/DNS/DHCP administration
 - Zabbix, Grafana and ManageEngine in production
-- Escalation and root-cause troubleshooting
+- Escalation, troubleshooting and root-cause analysis
 
-## How to use this
+## Evidence rule
 
-A public lab is evidence of technical capability and understanding. It is not presented as the same environment used in employment. Production experience remains supported by the CV and can be discussed at interview without disclosing confidential implementation details.
+A public implementation proves technical capability and provides an interviewable artifact. It does not claim that the lab is the same production environment used in employment.

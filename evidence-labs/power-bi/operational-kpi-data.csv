@@ -1,0 +1,13 @@
+timestamp,site,asset,metric,value,status
+2026-08-01T08:00:00Z,SITE-A,LINE-01,throughput,184,ok
+2026-08-01T09:00:00Z,SITE-A,LINE-01,throughput,191,ok
+2026-08-01T10:00:00Z,SITE-A,LINE-01,throughput,143,warning
+2026-08-01T08:00:00Z,SITE-B,LINE-02,throughput,211,ok
+2026-08-01T09:00:00Z,SITE-B,LINE-02,throughput,218,ok
+2026-08-01T10:00:00Z,SITE-B,LINE-02,throughput,223,ok
+2026-08-01T08:00:00Z,SITE-A,LINE-01,downtime_minutes,4,ok
+2026-08-01T09:00:00Z,SITE-A,LINE-01,downtime_minutes,7,warning
+2026-08-01T10:00:00Z,SITE-A,LINE-01,downtime_minutes,19,critical
+2026-08-01T08:00:00Z,SITE-B,LINE-02,downtime_minutes,2,ok
+2026-08-01T09:00:00Z,SITE-B,LINE-02,downtime_minutes,1,ok
+2026-08-01T10:00:00Z,SITE-B,LINE-02,downtime_minutes,3,ok

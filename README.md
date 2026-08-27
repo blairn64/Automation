@@ -10,6 +10,7 @@ A practical, sanitized collection of infrastructure, identity, cloud, security a
 - [`entra/`](entra/) — Microsoft Graph / Entra sign-in reporting patterns
 - [`exchange/`](exchange/) — Exchange privilege auditing
 - [`active-directory/`](active-directory/) — parameterized AD administration in a disposable lab
+- [`it-ops/`](it-ops/) — reusable Windows/AD/DNS PowerShell administration and troubleshooting collection
 - [`linux/`](linux/) — Bash/Linux operational checks
 - [`azure-labs/`](azure-labs/) — Azure administration scenarios
 - [`api-auth/`](api-auth/) — authenticated REST API example

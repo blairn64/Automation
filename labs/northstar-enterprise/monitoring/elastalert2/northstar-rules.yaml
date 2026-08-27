@@ -1,0 +1,27 @@
+---
+name: northstar-telemetry-backlog
+type: frequency
+index: northstar-*
+num_events: 5
+timeframe:
+  minutes: 5
+filter:
+  - term:
+      synthetic: true
+  - term:
+      activity: PasswordFailure
+alert:
+  - debug
+
+---
+name: northstar-ingestion-stale
+type: flatline
+index: northstar-*
+threshold: 1
+timeframe:
+  minutes: 10
+filter:
+  - term:
+      synthetic: true
+alert:
+  - debug

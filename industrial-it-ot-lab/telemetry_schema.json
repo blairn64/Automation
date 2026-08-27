@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "FactoryTelemetryEvent",
+  "type": "object",
+  "required": ["timestamp", "site", "asset", "source", "metric", "value", "status"],
+  "properties": {
+    "timestamp": {"type": "string", "format": "date-time"},
+    "site": {"type": "string", "minLength": 1},
+    "asset": {"type": "string", "minLength": 1},
+    "source": {"type": "string", "enum": ["plc", "sensor", "scale", "application"]},
+    "metric": {"type": "string", "minLength": 1},
+    "value": {"type": "number"},
+    "unit": {"type": "string"},
+    "status": {"type": "string", "enum": ["ok", "warning", "critical"]}
+  },
+  "additionalProperties": false
+}

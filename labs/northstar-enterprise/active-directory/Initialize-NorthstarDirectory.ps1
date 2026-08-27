@@ -9,15 +9,11 @@ identities are represented.
 [CmdletBinding(SupportsShouldProcess)]
 param(
     [string]$DomainDN = 'DC=northstar,DC=internal',
-    [switch]$CreateDemoUsers
+    [switch]$CreateDemoUsers,
+    [securestring]$DemoUserPassword
 )
 
 Import-Module ActiveDirectory -ErrorAction Stop
-
-$ous = @(
-    'HQ','Plant-East','Plant-West','Infrastructure','Privileged','Service Accounts',
-    'Users','Workstations','Servers','OT','Groups'
-)
 
 $paths = @(
     @{Name='HQ';Path=$DomainDN},
@@ -56,7 +52,10 @@ foreach ($group in $groups) {
 }
 
 if ($CreateDemoUsers) {
-    $password = ConvertTo-SecureString 'ChangeMeInYourLab!123' -AsPlainText -Force
+    if (-not $DemoUserPassword) {
+        $DemoUserPassword = Read-Host -Prompt 'Enter password for synthetic demo users' -AsSecureString
+    }
+
     $users = @(
         @{Given='Jamie';Surname='Taylor';Sam='jamie.taylor';OU="OU=Users,OU=HQ,$DomainDN";Dept='IT'},
         @{Given='Morgan';Surname='Reed';Sam='morgan.reed';OU="OU=Users,OU=HQ,$DomainDN";Dept='Engineering'},
@@ -64,7 +63,7 @@ if ($CreateDemoUsers) {
     )
     foreach ($user in $users) {
         if (-not (Get-ADUser -Filter "SamAccountName -eq '$($user.Sam)'" -ErrorAction SilentlyContinue)) {
-            New-ADUser -Name "$($user.Given) $($user.Surname)" -GivenName $user.Given -Surname $user.Surname -SamAccountName $user.Sam -UserPrincipalName "$($user.Sam)@northstar.internal" -Department $user.Dept -Path $user.OU -AccountPassword $password -Enabled $true -ChangePasswordAtLogon $true
+            New-ADUser -Name "$($user.Given) $($user.Surname)" -GivenName $user.Given -Surname $user.Surname -SamAccountName $user.Sam -UserPrincipalName "$($user.Sam)@northstar.internal" -Department $user.Dept -Path $user.OU -AccountPassword $DemoUserPassword -Enabled $true -ChangePasswordAtLogon $true
         }
     }
 }

@@ -1,0 +1,18 @@
+name: Northstar OT telemetry backlog
+index: northstar-monitoring-*
+type: frequency
+num_events: 3
+timeframe:
+  minutes: 5
+realert:
+  minutes: 15
+filter:
+  - term:
+      event.dataset: rabbitmq.queue
+  - range:
+      northstar.queue_depth:
+        gte: 500
+alert:
+  - debug
+alert_subject: "Northstar telemetry queue backlog"
+alert_text: "Telemetry queue depth exceeded the lab threshold. Investigate consumers, broker health and downstream ingestion."

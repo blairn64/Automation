@@ -1,0 +1,19 @@
+name: Northstar privileged group change
+index: northstar-identity-*
+type: frequency
+num_events: 1
+timeframe:
+  minutes: 5
+realert:
+  minutes: 30
+filter:
+  - term:
+      event.category: iam
+  - term:
+      event.action: group-membership-change
+  - term:
+      northstar.privileged_group: true
+alert:
+  - debug
+alert_subject: "Northstar privileged group change detected"
+alert_text: "Review the identity event and validate the change against the approved change record."

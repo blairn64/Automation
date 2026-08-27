@@ -6,11 +6,18 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 
 ## Start here
 
-### Professional evidence
+- [`docs/PROJECT-STATUS.md`](docs/PROJECT-STATUS.md) — what is runnable, simulated, fixture-driven or environment-specific
+- [`docs/CASE-STUDIES.md`](docs/CASE-STUDIES.md) — engineering stories and troubleshooting paths
+- [`docs/QUALITY.md`](docs/QUALITY.md) — quality expectations
+- [`docs/RELEASE-CHECKLIST.md`](docs/RELEASE-CHECKLIST.md) — final public-release checks
+
+### Identity & Microsoft 365
 - [`m365/`](m365/) — Intune, SharePoint, Teams and Defender operations
 - [`entra/`](entra/) — Microsoft Graph / Entra sign-in reporting patterns
 - [`exchange/`](exchange/) — Exchange privilege auditing
 - [`active-directory/`](active-directory/) — parameterized AD administration in a disposable lab
+
+### Systems & automation
 - [`it-ops/`](it-ops/) — reusable Windows/AD/DNS PowerShell administration and troubleshooting collection
 - [`windows/iis/`](windows/iis/) — IIS application health and troubleshooting
 - [`sql/health/`](sql/health/) — SQL Server diagnostic tooling
@@ -18,12 +25,14 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 - [`azure-labs/`](azure-labs/) — Azure administration scenarios
 - [`api-auth/`](api-auth/) — authenticated REST API example
 - [`message-queue/`](message-queue/) — RabbitMQ/AMQP producer-consumer lab
-- [`factory-lab/`](factory-lab/) — synthetic IT/OT-style telemetry pipeline
+
+### Enterprise & IT/OT
 - [`enterprise-lab/`](enterprise-lab/) — 5,000-user multi-site enterprise simulation with identity, service desk and operational data
 - [`enterprise-lab/integrations/sap-style/`](enterprise-lab/integrations/sap-style/) — vendor-neutral ERP integration boundary
 - [`enterprise-lab/ot/`](enterprise-lab/ot/) — PLC/OT-style telemetry simulator
+- [`factory-lab/`](factory-lab/) — synthetic IT/OT-style telemetry pipeline
 
-### Infrastructure, network and security
+### Monitoring, security & infrastructure
 - [`evidence-labs/networking/`](evidence-labs/networking/) — firewall, VPN, DNS/DHCP and segmentation lab patterns
 - [`security/vulnerability-management/`](security/vulnerability-management/) — scanner-style findings and remediation pipeline
 - [`security/defender/`](security/defender/) — Defender incident triage
@@ -40,13 +49,14 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 - [`evidence-labs/nosql/`](evidence-labs/nosql/) — MongoDB / document data
 - [`evidence-labs/power-bi/`](evidence-labs/power-bi/) — operational KPI reporting dataset and DAX
 
-## Documentation
+## Evidence and documentation
 
 - [`docs/CV-EVIDENCE.md`](docs/CV-EVIDENCE.md) — CV-to-exact-artifact mapping
 - [`docs/VENDOR-EVIDENCE.md`](docs/VENDOR-EVIDENCE.md) — vendor technology evidence index
 - [`docs/CASE-STUDIES.md`](docs/CASE-STUDIES.md) — engineering case studies
 - [`docs/PORTFOLIO.md`](docs/PORTFOLIO.md) — portfolio positioning and interview discussion points
 - [`docs/QUALITY.md`](docs/QUALITY.md) — quality and safety expectations
+- [`SECURITY.md`](SECURITY.md) — security and disclosure expectations
 
 ## Tooling
 

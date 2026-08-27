@@ -1,19 +1,18 @@
-# SAP-style enterprise integration
+# SAP-Style ERP Integration Lab
 
-A vendor-neutral integration exercise representing the kind of boundary commonly found between manufacturing applications and an ERP platform.
+A vendor-neutral simulator for the integration boundary between manufacturing applications and an ERP platform.
 
 ## Demonstrates
 
 - Production-order contract validation
-- Idempotency keys
-- Retry with bounded backoff
-- Explicit failure handling
+- Idempotency and duplicate handling
+- Bounded retry/error handling
+- Explicit downstream failure handling
 - Separation between factory systems and external business systems
+- Reconciliation of source and accepted transactions
 
-The implementation does not reproduce or expose any proprietary ERP interface. It is a clean-room portfolio example.
+## Runnable component
 
-Run:
+`sap-simulator.py` exposes a small Flask API for order lookup and production confirmation.
 
-```bash
-python sap-integration.py
-```
+This is a clean-room portfolio implementation. It does not reproduce or expose any proprietary ERP interface or real business data.

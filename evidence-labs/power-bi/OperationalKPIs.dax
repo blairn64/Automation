@@ -1,0 +1,5 @@
+-- Example Power BI measures for operational-kpi-data.csv
+Total Throughput = CALCULATE(SUM('operational-kpi-data'[value]), 'operational-kpi-data'[metric] = "throughput")
+Total Downtime Minutes = CALCULATE(SUM('operational-kpi-data'[value]), 'operational-kpi-data'[metric] = "downtime_minutes")
+Critical Events = CALCULATE(COUNTROWS('operational-kpi-data'), 'operational-kpi-data'[status] = "critical")
+Warning Events = CALCULATE(COUNTROWS('operational-kpi-data'), 'operational-kpi-data'[status] = "warning")

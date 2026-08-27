@@ -7,6 +7,7 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 ## Start here
 
 ### Professional evidence
+- [`m365/`](m365/) — Intune, SharePoint, Teams and Defender operations
 - [`entra/`](entra/) — Microsoft Graph / Entra sign-in reporting patterns
 - [`exchange/`](exchange/) — Exchange privilege auditing
 - [`active-directory/`](active-directory/) — parameterized AD administration in a disposable lab
@@ -20,32 +21,35 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 - [`factory-lab/`](factory-lab/) — synthetic IT/OT-style telemetry pipeline
 - [`enterprise-lab/`](enterprise-lab/) — 5,000-user multi-site enterprise simulation with identity, service desk and operational data
 - [`enterprise-lab/integrations/sap-style/`](enterprise-lab/integrations/sap-style/) — vendor-neutral ERP integration boundary
+- [`enterprise-lab/ot/`](enterprise-lab/ot/) — PLC/OT-style telemetry simulator
 
 ### Infrastructure, network and security
 - [`evidence-labs/networking/`](evidence-labs/networking/) — firewall, VPN, DNS/DHCP and segmentation lab patterns
-- [`security/vulnerability-management/`](security/vulnerability-management/) — synthetic scanner findings and remediation workflow
+- [`security/vulnerability-management/`](security/vulnerability-management/) — scanner-style findings and remediation pipeline
+- [`security/defender/`](security/defender/) — Defender incident triage
 - [`monitoring/elastic/`](monitoring/elastic/) — synthetic telemetry and Elastic operational patterns
+- [`monitoring/grafana/`](monitoring/grafana/) — operational dashboard definition
+- [`monitoring/zabbix/`](monitoring/zabbix/) — items and triggers for enterprise operations
+- [`monitoring/manageengine/`](monitoring/manageengine/) — monitoring operations export schema
 - [`evidence-labs/wazuh/`](evidence-labs/wazuh/) — security monitoring/detection lab
-- [`evidence-labs/observability/grafana/`](evidence-labs/observability/grafana/) — dashboard design and KPI visibility
-- [`evidence-labs/observability/zabbix/`](evidence-labs/observability/zabbix/) — infrastructure monitoring model
-- [`evidence-labs/observability/manageengine/`](evidence-labs/observability/manageengine/) — monitoring operations model
-- [`virtualization/`](virtualization/) — VMware/Hyper-V operational tasks
+- [`virtualization/`](virtualization/) — VMware PowerCLI and Hyper-V operational tooling
 
 ### Operational engineering
 - [`service-desk/`](service-desk/) — synthetic ticket workload analysis
 - [`incident-scenarios/`](incident-scenarios/) — reproducible troubleshooting and root-cause scenarios
 - [`evidence-labs/nosql/`](evidence-labs/nosql/) — MongoDB / document data
-- [`evidence-labs/power-bi/`](evidence-labs/power-bi/) — operational KPI reporting dataset
+- [`evidence-labs/power-bi/`](evidence-labs/power-bi/) — operational KPI reporting dataset and DAX
 
 ## Documentation
 
-- [`docs/CV-EVIDENCE.md`](docs/CV-EVIDENCE.md) — CV-to-evidence mapping
+- [`docs/CV-EVIDENCE.md`](docs/CV-EVIDENCE.md) — CV-to-exact-artifact mapping
+- [`docs/VENDOR-EVIDENCE.md`](docs/VENDOR-EVIDENCE.md) — vendor technology evidence index
 - [`docs/CASE-STUDIES.md`](docs/CASE-STUDIES.md) — engineering case studies
 - [`docs/PORTFOLIO.md`](docs/PORTFOLIO.md) — portfolio positioning and interview discussion points
 - [`docs/QUALITY.md`](docs/QUALITY.md) — quality and safety expectations
 
 ## Tooling
 
-PowerShell • Python • Bash • Azure • Microsoft Graph • Entra ID • Exchange Online • Active Directory • Windows Server • Linux • Docker • REST • RabbitMQ/AMQP • SQL • Elasticsearch • Elastic Stack • Ansible • networking • monitoring • incident response
+PowerShell • Python • Bash • Azure • Microsoft Graph • Entra ID • Exchange Online • Active Directory • Windows Server • Linux • Docker • REST • RabbitMQ/AMQP • SQL • Elasticsearch • Elastic Stack • Ansible • VMware PowerCLI • Hyper-V • networking • monitoring • incident response
 
 Older college work and obsolete personal projects are deliberately not used as the primary professional signal.

@@ -1,0 +1,34 @@
+name: Northstar lab validation
+
+on:
+  push:
+    paths:
+      - 'labs/northstar-enterprise/**'
+      - '.github/workflows/northstar-tests.yml'
+  pull_request:
+    paths:
+      - 'labs/northstar-enterprise/**'
+      - '.github/workflows/northstar-tests.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  pester:
+    name: Pester validation
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v6
+
+      - name: Install Pester
+        run: |
+          Set-PSRepository PSGallery -InstallationPolicy Trusted
+          Install-Module Pester -Force -Scope CurrentUser -MinimumVersion 5.5.0
+
+      - name: Run Northstar tests
+        run: |
+          Invoke-Pester ./labs/northstar-enterprise/tests -CI

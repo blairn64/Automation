@@ -1,0 +1,5 @@
+[
+  {"DeviceName":"OPS-LT-001","OperatingSystem":"Windows","ComplianceState":"compliant","ManagementAgent":"mdm","LastSyncDateTime":"2026-08-27T12:00:00Z"},
+  {"DeviceName":"OPS-LT-014","OperatingSystem":"Windows","ComplianceState":"noncompliant","ManagementAgent":"mdm","LastSyncDateTime":"2026-08-26T07:20:00Z"},
+  {"DeviceName":"FACTORY-TAB-021","OperatingSystem":"Android","ComplianceState":"compliant","ManagementAgent":"mdm","LastSyncDateTime":"2026-08-27T11:40:00Z"}
+]

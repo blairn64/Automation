@@ -1,0 +1,23 @@
+zabbix_export:
+  version: '6.0'
+  templates:
+    - template: 'Northstar Synthetic Infrastructure'
+      name: 'Northstar Synthetic Infrastructure'
+      groups:
+        - name: 'Templates/Northstar'
+      items:
+        - name: 'Northstar service availability'
+          key: 'northstar.service.availability'
+          type: ZABBIX_ACTIVE
+          value_type: UNSIGNED
+          delay: 60s
+        - name: 'Northstar queue depth'
+          key: 'northstar.queue.depth'
+          type: ZABBIX_ACTIVE
+          value_type: UNSIGNED
+          delay: 30s
+        - name: 'Northstar ingestion age'
+          key: 'northstar.ingestion.age'
+          type: ZABBIX_ACTIVE
+          value_type: FLOAT
+          delay: 60s

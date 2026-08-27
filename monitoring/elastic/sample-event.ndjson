@@ -1,0 +1,2 @@
+{"@timestamp":"2026-08-27T12:00:00Z","site":"NORTH","asset":"LINE-01","source":"factory","event_type":"telemetry","severity":"warning","temperature_c":81.4,"status":"warning"}
+{"@timestamp":"2026-08-27T12:01:00Z","site":"NORTH","asset":"LINE-01","source":"factory","event_type":"telemetry","severity":"critical","temperature_c":88.7,"status":"critical"}

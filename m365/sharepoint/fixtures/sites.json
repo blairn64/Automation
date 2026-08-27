@@ -1,0 +1,5 @@
+[
+  {"Id":"site-001","DisplayName":"Operations Hub","WebUrl":"https://contoso.example/sites/operations","SiteCollection":{"Hostname":"contoso.example"}},
+  {"Id":"site-002","DisplayName":"Engineering","WebUrl":"https://contoso.example/sites/engineering","SiteCollection":{"Hostname":"contoso.example"}},
+  {"Id":"site-003","DisplayName":"Service Desk","WebUrl":"https://contoso.example/sites/service-desk","SiteCollection":{"Hostname":"contoso.example"}}
+]

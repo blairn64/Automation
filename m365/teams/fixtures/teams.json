@@ -1,0 +1,5 @@
+[
+  {"Id":"team-001","DisplayName":"Operations","Visibility":"private","Description":"Synthetic operations team"},
+  {"Id":"team-002","DisplayName":"Engineering","Visibility":"private","Description":"Synthetic engineering collaboration"},
+  {"Id":"team-003","DisplayName":"Service Desk","Visibility":"public","Description":"Synthetic support collaboration"}
+]

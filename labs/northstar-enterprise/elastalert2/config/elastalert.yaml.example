@@ -1,0 +1,15 @@
+# Copy to elastalert.yaml and set environment-specific values outside Git.
+rules_folder: /opt/elastalert/rules
+run_every:
+  seconds: 30
+buffer_time:
+  minutes: 15
+
+es_host: elasticsearch
+es_port: 9200
+writeback_index: elastalert_status
+alert_time_limit:
+  days: 2
+
+# For TLS/authenticated clusters, use environment variables or a secret manager.
+# Never commit production credentials or API keys.

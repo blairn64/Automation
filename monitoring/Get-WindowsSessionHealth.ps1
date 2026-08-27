@@ -8,14 +8,14 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 function Get-SessionHealth {
-    param([string]$Computer)
+    param([Parameter(Mandatory)][string]$Computer)
 
-    $raw = qwinsta /server:$Computer 2>&1
+    $raw = @(qwinsta /server:$Computer 2>&1)
     if ($LASTEXITCODE -ne 0) {
-        throw "Unable to query sessions on $Computer."
+        throw "Unable to query sessions on $Computer. Check connectivity and permissions."
     }
 
-    $sessions = foreach ($line in $raw | Select-Object -Skip 1) {
+    $sessions = foreach ($line in ($raw | Select-Object -Skip 1)) {
         if ([string]::IsNullOrWhiteSpace($line)) { continue }
         $clean = ($line -replace '^\s*>','') -replace '^\s+',''
         $parts = $clean -split '\s{2,}'
@@ -35,11 +35,10 @@ function Get-SessionHealth {
 
     [pscustomobject]@{
         Computer = $Computer
-        Checked  = Get-Date
+        Checked  = (Get-Date).ToUniversalTime()
         Sessions = @($sessions)
         Count    = @($sessions).Count
     }
 }
 
-$result = Get-SessionHealth -Computer $ComputerName
-$result | ConvertTo-Json -Depth 5
+Get-SessionHealth -Computer $ComputerName | ConvertTo-Json -Depth 5

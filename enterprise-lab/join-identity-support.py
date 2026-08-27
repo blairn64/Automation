@@ -1,4 +1,4 @@
-"""Join synthetic identities, sign-ins and tickets into an operational view."""
+"""Join synthetic identities, sign-ins and support tickets into an operational view."""
 
 from __future__ import annotations
 
@@ -9,7 +9,7 @@ from pathlib import Path
 ROOT = Path(__file__).parent
 USERS = ROOT / "users.csv"
 SIGNINS = ROOT / "signins.csv"
-TICKETS = ROOT / "tickets.csv"
+TICKETS = ROOT / "support-tickets.csv"
 OUT = ROOT / "identity-support-summary.csv"
 
 
@@ -24,7 +24,7 @@ def main() -> None:
     tickets = read_csv(TICKETS)
 
     failures = Counter(row["user_id"] for row in signins if row["result"] == "failure")
-    ticket_counts = Counter(row["user_id"] for row in tickets if "user_id" in row)
+    ticket_counts = Counter(row.get("user_id", "") for row in tickets if row.get("user_id"))
 
     with OUT.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(

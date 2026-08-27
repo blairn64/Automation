@@ -1,0 +1,7 @@
+FROM python:3.12-slim
+WORKDIR /app
+COPY requirements-consumer.txt .
+RUN pip install --no-cache-dir -r requirements-consumer.txt
+COPY consumer/ ./consumer/
+ENV PYTHONUNBUFFERED=1
+CMD ["python", "consumer/rabbitmq_to_ndjson.py"]

@@ -8,6 +8,10 @@ Practical PowerShell automation for identity, messaging, directory administratio
 
 The repository is intentionally **portfolio-safe**: examples use placeholders and generic lab targets rather than customer or production configuration.
 
+## Why this repository exists
+
+The goal is to show how infrastructure work can be turned into small, reusable tools: collect useful data, validate it, produce structured output and fail clearly when prerequisites are missing.
+
 ## Scope
 
 | Area | Examples | Main technologies |
@@ -30,14 +34,18 @@ monitoring/
   Get-WindowsSessionHealth.ps1
 shared/
 docs/
+  PROJECTS.md
   TOOLING.md
-  SECURITY.md
   ROADMAP.md
 ```
 
 ## Engineering approach
 
-The scripts favour parameterization, structured output, clear failure modes and safe defaults. Security/audit tooling is read-only where practical, and potentially destructive operations are avoided in the public examples.
+The scripts favour parameterization, structured output, clear failure modes and safe defaults. Security/audit tooling is read-only where practical. Administrative actions use explicit parameters and `ShouldProcess` where appropriate.
+
+## Quality
+
+A GitHub Actions workflow runs PowerShell static analysis with PSScriptAnalyzer on pushes and pull requests.
 
 ## Safety
 
@@ -45,7 +53,7 @@ Do not add:
 
 - employer or client names
 - real usernames or email addresses
-- tenant/subscription/resource IDs
+- tenant, subscription or resource IDs
 - internal domains, URLs, hostnames or IP addresses
 - passwords, API keys, access tokens, private keys or certificates
 - copied ticket content or customer data

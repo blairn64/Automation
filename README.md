@@ -4,6 +4,10 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 
 > **Portfolio rule:** examples are either personal lab work or clean-room demonstrations. No employer/client/tenant data, credentials, private hostnames or proprietary configuration is included.
 
+## Flagship lab
+
+- [`labs/northstar-enterprise/`](labs/northstar-enterprise/) — fictional multi-site enterprise built around Hyper-V, Active Directory, segmented networks, OPNsense, Elastic, ElastAlert 2, monitoring, OT telemetry and reproducible incident scenarios
+
 ## Start here
 
 - [`docs/PROJECT-STATUS.md`](docs/PROJECT-STATUS.md) — what is runnable, simulated, fixture-driven or environment-specific
@@ -33,6 +37,7 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 - [`factory-lab/`](factory-lab/) — synthetic IT/OT-style telemetry pipeline
 
 ### Monitoring, security & infrastructure
+- [`labs/northstar-enterprise/`](labs/northstar-enterprise/) — flagship virtual enterprise and incident lab
 - [`evidence-labs/networking/`](evidence-labs/networking/) — firewall, VPN, DNS/DHCP and segmentation lab patterns
 - [`security/vulnerability-management/`](security/vulnerability-management/) — scanner-style findings and remediation pipeline
 - [`security/defender/`](security/defender/) — Defender incident triage
@@ -60,6 +65,6 @@ A practical, sanitized collection of infrastructure, identity, cloud, security, 
 
 ## Tooling
 
-PowerShell • Python • Bash • Azure • Microsoft Graph • Entra ID • Exchange Online • Active Directory • Windows Server • Linux • Docker • REST • RabbitMQ/AMQP • SQL • Elasticsearch • Elastic Stack • Ansible • VMware PowerCLI • Hyper-V • networking • monitoring • incident response
+PowerShell • Python • Bash • Azure • Microsoft Graph • Entra ID • Exchange Online • Active Directory • Windows Server • Linux • Docker • REST • RabbitMQ/AMQP • SQL • Elasticsearch • Elastic Stack • ElastAlert 2 • OPNsense • Hyper-V • VMware PowerCLI • networking • monitoring • incident response
 
 Older college work and obsolete personal projects are deliberately not used as the primary professional signal.

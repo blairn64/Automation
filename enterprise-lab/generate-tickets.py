@@ -37,6 +37,7 @@ def main() -> None:
             fieldnames=[
                 "ticket_id",
                 "created_at",
+                "user_id",
                 "site",
                 "category",
                 "priority",
@@ -54,6 +55,7 @@ def main() -> None:
                     "created_at": (
                         start + timedelta(minutes=random.randint(0, 60 * 24 * 14))
                     ).isoformat().replace("+00:00", "Z"),
+                    "user_id": f"USR-{random.randint(1, 5000):05d}",
                     "site": random.choice(SITES),
                     "category": random.choice(CATEGORIES),
                     "priority": priority,

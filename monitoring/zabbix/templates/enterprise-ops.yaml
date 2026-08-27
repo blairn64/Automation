@@ -1,0 +1,28 @@
+zabbix_export:
+  version: '6.4'
+  templates:
+    - uuid: 6a2a8d5d7c4e4c91b9a52c9a4ad9d7d1
+      template: 'Enterprise Operations'
+      name: 'Enterprise Operations'
+      groups:
+        - name: Templates/Operating systems
+      items:
+        - uuid: 0a79f8f3d9e74d8daab3c1d2e8e9f001
+          name: 'Application latency'
+          key: app.latency.ms
+          type: ZABBIX_PASSIVE
+          value_type: FLOAT
+        - uuid: 0a79f8f3d9e74d8daab3c1d2e8e9f002
+          name: 'RabbitMQ queue depth'
+          key: rabbitmq.queue.depth
+          type: ZABBIX_PASSIVE
+          value_type: UNSIGNED
+      triggers:
+        - uuid: 0a79f8f3d9e74d8daab3c1d2e8e9f003
+          expression: 'last(/Enterprise Operations/app.latency.ms)>1000'
+          name: 'Application latency is high'
+          priority: HIGH
+        - uuid: 0a79f8f3d9e74d8daab3c1d2e8e9f004
+          expression: 'last(/Enterprise Operations/rabbitmq.queue.depth)>500'
+          name: 'RabbitMQ queue backlog is high'
+          priority: WARNING

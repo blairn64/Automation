@@ -1,37 +1,25 @@
-# t0w3r
+# Infrastructure Automation
 
-Security & Systems Engineer focused on building, securing, and operating reliable infrastructure.
+Portfolio-safe automation and defensive infrastructure tooling.
 
-## What I do
-I work across cloud and hybrid environments designing and supporting systems with an emphasis on:
-- Security engineering and defensive operations
-- Monitoring, logging, and alerting
-- Automation to reduce toil and operational risk
-- Backup, recovery, and resilience
-- Identity, access, and infrastructure hardening
+## What is here
+- `entra/` — Microsoft Graph and identity reporting examples
+- `exchange/` — Exchange Online auditing examples
+- `active-directory/` — generic directory automation workflows
+- `monitoring/` — Windows and service monitoring examples
+- `shared/` — reusable helpers and example configuration
 
-Most of my work comes from MSP and enterprise environments, supporting multiple production estates simultaneously and improving visibility, reliability, and incident response.
+## Safety and provenance
+This repository contains **no employer, client or production data**. Examples use placeholder domains, tenant IDs, usernames and addresses. Do not commit credentials, certificates, private keys, customer data, internal URLs, hostnames, IP ranges or proprietary libraries.
 
-## Focus areas
-- Security monitoring & incident response
-- Systems engineering (Windows, Linux, cloud & hybrid)
-- Automation and scripting
-- Observability (logs, metrics, alerts)
-- Infrastructure reliability and operational maturity
+Some tools are sanitized portfolio reconstructions based on general automation patterns and professional experience. They are not copies of employer environments and should not be represented as such.
 
-## Philosophy
-I’m interested in practical security — systems that are observable, well-understood, and recoverable.  
-Automation should remove noise, not add complexity.  
-Monitoring should surface signal, not dashboards for the sake of dashboards.
+## Focus
+- Identity and access reporting
+- Cloud and hybrid administration
+- Monitoring and alerting
+- Operational automation
+- Defensive infrastructure tooling
 
-## Writing
-I write about systems, security, monitoring, and the operational realities of running production infrastructure:
-
-🔗 https://securitytower.wordpress.com/
-
-## Notes
-This profile contains selected projects, experiments, and tooling related to monitoring, automation, and defensive security.  
-Not all work can be public — some of the most valuable lessons don’t live in repositories.
-
----
-
+## Usage
+Each tool should contain its own README with prerequisites, permissions, configuration and example output.

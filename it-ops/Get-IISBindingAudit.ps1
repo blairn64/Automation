@@ -1,7 +1,6 @@
 [CmdletBinding()]
 param(
     [string[]]$ComputerName = @($env:COMPUTERNAME),
-    [int]$WarningDays = 45,
     [string]$OutputPath
 )
 
@@ -13,20 +12,22 @@ $results = foreach ($computer in $ComputerName) {
         } -ErrorAction Stop
 
         foreach ($binding in $rows) {
-            $hostHeader = $binding.bindingInformation.Split(':')[-1]
-            $certificateDays = $null
-            if ($binding.protocol -eq 'https') {
-                $parts = $binding.bindingInformation.Split(':')
-                $port = $parts[1]
-                $certificateDays = 'Review certificate store / thumbprint mapping'
+            $parts = $binding.bindingInformation.Split(':')
+            $hostHeader = if ($parts.Count -ge 3) { $parts[2] } else { '' }
+            $port = if ($parts.Count -ge 2) { $parts[1] } else { '' }
+            $certificateCheck = if ($binding.protocol -eq 'https') {
+                'Review certificate store/thumbprint mapping for this HTTPS binding'
+            } else {
+                'Not applicable'
             }
 
             [pscustomobject]@{
                 ComputerName = $computer
                 Protocol = $binding.protocol
                 Binding = $binding.bindingInformation
+                Port = $port
                 HostHeader = $hostHeader
-                CertificateCheck = $certificateDays
+                CertificateCheck = $certificateCheck
                 Status = 'REVIEW'
             }
         }
@@ -36,6 +37,7 @@ $results = foreach ($computer in $ComputerName) {
             ComputerName = $computer
             Protocol = $null
             Binding = $null
+            Port = $null
             HostHeader = $null
             CertificateCheck = $null
             Status = "ERROR: $($_.Exception.Message)"

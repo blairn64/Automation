@@ -1,0 +1,9 @@
+{
+  "resource": "devices",
+  "fields": ["deviceName","site","os","lastSeen","health","owner"],
+  "filters": {
+    "health": ["healthy","warning","critical"],
+    "staleDays": 30
+  },
+  "reportPurpose": "Synthetic endpoint inventory for monitoring, escalation and asset review"
+}

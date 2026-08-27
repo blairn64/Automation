@@ -1,0 +1,18 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+
+  elastalert:
+    image: jertel/elastalert2:latest
+    depends_on:
+      - rabbitmq
+    volumes:
+      - ./elastalert2/config:/opt/elastalert/config:ro
+      - ./elastalert2/rules:/opt/elastalert/rules:ro
+    command: ["elastalert", "--config", "/opt/elastalert/config/config.yaml"]
+
+# Elasticsearch/Kibana connection details are intentionally supplied through local configuration.
+# Do not commit real endpoints, credentials, or API keys.

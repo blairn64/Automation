@@ -1,0 +1,11 @@
+{
+  "title": "Factory Operations Overview",
+  "panels": [
+    {"title": "Throughput by Asset", "type": "timeseries", "field": "throughput"},
+    {"title": "Downtime Minutes", "type": "timeseries", "field": "downtime_minutes"},
+    {"title": "Critical Events", "type": "stat", "field": "critical"},
+    {"title": "Warnings", "type": "stat", "field": "warning"},
+    {"title": "Site Summary", "type": "table", "group_by": ["site"]}
+  ],
+  "data_source_note": "Synthetic lab data only. Adapt the data source configuration for a local Grafana instance."
+}

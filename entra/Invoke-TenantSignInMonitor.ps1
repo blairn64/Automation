@@ -31,7 +31,7 @@ function Connect-ToGraphTenant {
     Connect-MgGraph -TenantId $TenantId -ClientId $ClientId -CertificateThumbprint $CertificateThumbprint -NoWelcome | Out-Null
 }
 
-function Get-SignInFindings {
+function Get-SignInFinding {
     param([Parameter(Mandatory)] [string]$TenantId)
 
     Connect-ToGraphTenant -TenantId $TenantId
@@ -60,7 +60,7 @@ $findings = [System.Collections.Generic.List[object]]::new()
 
 foreach ($tenantId in $TenantIds) {
     try {
-        foreach ($record in (Get-SignInFindings -TenantId $tenantId)) {
+        foreach ($record in (Get-SignInFinding -TenantId $tenantId)) {
             $findings.Add($record)
         }
     }

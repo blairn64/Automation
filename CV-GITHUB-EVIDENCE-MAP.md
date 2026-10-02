@@ -1,4 +1,4 @@
-# CV → GitHub Evidence Map
+GitHub Map
 
 This page maps technical claims to public portfolio evidence. Employment history remains evidence for roles and scale; Northstar and the surrounding Automation portfolio demonstrate transferable implementation and operational practice using synthetic environments only.
 
@@ -60,4 +60,4 @@ For the fastest technical walkthrough:
 5. Follow a scenario through detection, investigation, recovery and validation.
 
 ## Scope note
-Public code demonstrates architecture, automation and operational practices. It does not claim to reproduce confidential employer systems or disclose proprietary configurations, data, users, credentials or production records.
+Public code demonstrates architecture, automation and operational practices.
